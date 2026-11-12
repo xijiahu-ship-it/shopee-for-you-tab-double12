@@ -2111,7 +2111,11 @@ html,body{margin:0!important;padding:0!important;width:100%;height:100%;backgrou
 #migoo-d11-reference .d12-home .feature-chips{gap:2.2cqw;padding:0 4.2cqw 4.6cqw}
 #migoo-d11-reference .d12-home .feature-chips button{position:relative;overflow:hidden;min-height:13.4cqw;padding:2.2cqw 2.4cqw 2.2cqw 3.2cqw;gap:1.5cqw;border-radius:3cqw;background:linear-gradient(135deg,#fff 0%,#fff4ea 100%);border:1px solid #ffdcc8;box-shadow:0 1.5cqw 4cqw #ff5a2e10;font-size:3.1cqw;line-height:1.3;font-weight:650;color:#2a211d;letter-spacing:-.02cqw}
 #migoo-d11-reference .d12-home .feature-chips button:before{content:"";position:absolute;right:-4cqw;top:-5cqw;width:18cqw;height:18cqw;border-radius:50%;background:radial-gradient(circle,#ffb13d4a,transparent 64%);pointer-events:none}
-#migoo-d11-reference .d12-home .feature-chips button span{white-space:nowrap;position:relative}
+#migoo-d11-reference .d12-home .feature-chips button span{white-space:normal;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1.1cqw;min-width:0;line-height:1.25}
+#migoo-d11-reference .d12-home .feature-chips button span .d12-chip-tag{white-space:nowrap}
+#migoo-d11-reference .d12-home .feature-chips img{flex-shrink:0}
+#migoo-d11-reference .d12-chip-tag{display:inline-block;font-style:normal;font-size:2cqw;line-height:1;letter-spacing:.18cqw;text-transform:uppercase;font-weight:750;color:#d94a22;background:#ffe9db;padding:.8cqw 1.4cqw;border-radius:1cqw}
+#migoo-d11-reference .d12-home .feature-chips button{min-height:15.6cqw;font-size:3cqw}
 #migoo-d11-reference .d12-home .feature-chips img{width:8cqw;height:8cqw;position:relative}
 /* Feed stays quiet: production background, compact type. */
 #migoo-d11-reference .d12-home .online-waterfall{gap:2.2cqw;padding:0 4.2cqw}
@@ -2202,7 +2206,7 @@ const chips={
     {q:'双十二预算Rp100.000，推荐性价比耳机',kind:'personalized'},
     {q:'双十二按我的预算推荐必买好物',kind:'budget'}
   ]},
-  buy:{label:'双十二必买清单',icon:'lightbulb',asset:'bulb',options:[
+  buy:{label:'Find Shopping Ideas',icon:'lightbulb',asset:'bulb',options:[
     {q:'之前买过的商品哪些适合双十二复购囤货',kind:'history'},
     {q:'最近几天浏览但没买的商品，双十二还有没有更好的推荐',kind:'alternatives'},
     {q:'双十二热门必买好物推荐',kind:'popular'}
@@ -3313,15 +3317,15 @@ const campaignIconPaths={
 };
 const campaignIcon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true">${campaignIconPaths[name]||campaignIconPaths.sparkles}</svg>`;
 const alignedModules={
- hot:{label:'大促热选',icon:'flame',assistant:'popular'},
- value:{label:'折扣精选',icon:'discount',assistant:'value'},
- restock:{label:'复购补货',icon:'package',assistant:'repurchase'}
+ hot:{label:'大促好物清单',icon:'flame',assistant:'popular'},
+ value:{label:'爆款补贴清单',icon:'discount',assistant:'value'},
+ restock:{label:'大促必囤清单',icon:'package',assistant:'repurchase'}
 };
 for(const [key,module] of Object.entries(alignedModules))hubItems[key].label=module.label;
 promoHub=function(){
  const live=!isD12&&s.period==='live',countdownLive=live||isD12&&double12Live(),event=isD12?'12.12':'11.11',digit=isD12?'12':'11',day=isD12?'双十二':'双十一';
  const lists=['hot','value','restock'],features=live?['orderplan','flash','budgetlist','external']:['compare','discount','budgetlist','external'];
- return `<section class="promo-hub integrated-promo" aria-label="${day}大促聚合模块"><div class="d12-hero"><div class="d12-kicker">${event} MEGA SALE <span>AI SHOPPING</span></div><div class="d12-sale-row"><div class="d12-sale-number" aria-hidden="true">${digit}<span class="d12-sale-bolt">ϟ</span>${digit}</div><div class="promo-countdown"><span>${countdownLive?'大促结束倒计时':'大促开启倒计时'}</span><time data-countdown aria-label="${countdownLive?'大促结束倒计时':'大促开启倒计时'}"></time></div></div><h2>${day}，AI 帮你挑好物</h2><p>大促热选 · 折扣精选 · 复购补货</p>${!isD12&&!live?`<div class="campaign-day-hint">${I('calendar-check')}<span>可查看大促当天价格</span></div>`:''}<span class="d12-hero-sparkle">${campaignIcon('sparkles')}</span><span class="d12-hero-star" aria-hidden="true">✦</span></div><div class="d12-modules" role="group" aria-label="三类购物清单">${lists.map(key=>`<button type="button" class="d12-module" data-hub="${key}" aria-label="${alignedModules[key].label}">${campaignIcon(alignedModules[key].icon)}<strong>${alignedModules[key].label}</strong></button>`).join('')}</div><div class="promo-features" style="--feature-count:4">${features.map(key=>`<button type="button" data-hub="${key}">${I(hubItems[key].icon)}<span>${key==='external'?'外站商品<br>找低价':hubItems[key].label}</span></button>`).join('')}</div></section>`;
+ return `<section class="promo-hub integrated-promo" aria-label="${day}大促聚合模块"><div class="d12-hero"><div class="d12-kicker">${event} MEGA SALE <span>AI SHOPPING</span></div><div class="d12-sale-row"><div class="d12-sale-number" aria-hidden="true">${digit}<span class="d12-sale-bolt">ϟ</span>${digit}</div><div class="promo-countdown"><span>${countdownLive?'大促结束倒计时':'大促开启倒计时'}</span><time data-countdown aria-label="${countdownLive?'大促结束倒计时':'大促开启倒计时'}"></time></div></div><h2>${day}，AI 帮你挑好物</h2><p>大促好物清单 · 爆款补贴清单 · 大促必囤清单</p>${!isD12&&!live?`<div class="campaign-day-hint">${I('calendar-check')}<span>可查看大促当天价格</span></div>`:''}<span class="d12-hero-sparkle">${campaignIcon('sparkles')}</span><span class="d12-hero-star" aria-hidden="true">✦</span></div><div class="d12-modules" role="group" aria-label="三类购物清单">${lists.map(key=>`<button type="button" class="d12-module" data-hub="${key}" aria-label="${alignedModules[key].label}">${campaignIcon(alignedModules[key].icon)}<strong>${alignedModules[key].label}</strong></button>`).join('')}</div><div class="promo-features" style="--feature-count:4">${features.map(key=>`<button type="button" data-hub="${key}">${I(hubItems[key].icon)}<span>${key==='external'?'外站商品<br>找低价':hubItems[key].label}</span></button>`).join('')}</div></section>`;
 };
 // Delegation uses the actual Assistant module in the surrounding original phone.
 openIntegratedAssistant=function(route='assistant',stage='entry',preserve=false){
@@ -3399,8 +3403,10 @@ if(isD12){
   return `<section class="integrated-promo d12-banner" aria-label="双十二大促入口"><div class="d12-banner-top"><div><div class="d12-banner-eyebrow">12.12 Mega Sale <b>AI Shopping</b></div><div class="d12-banner-number" aria-hidden="true">12<i>.</i>12</div><div class="d12-banner-title">双十二，AI 帮你挑好物</div></div><div class="d12-banner-countdown"><span>${label}</span><time data-countdown aria-label="${label}"></time></div></div><span class="d12-banner-sparkle" aria-hidden="true">${campaignIcon('sparkles')}</span><div class="d12-banner-entries" role="group" aria-label="三类购物清单">${Object.entries(alignedModules).map(([key,m])=>`<button type="button" class="d12-module cursor-interaction" data-hub="${key}" aria-label="${m.label}">${campaignIcon(m.icon)}<span>${m.label}</span></button>`).join('')}</div></section>`;
  }
  home=function(){
-  return top()+`<div class="commerce d12-home" tabindex="0" aria-label="双十二商品推荐区域"><div class="d12-eyebrow">12.12 Mega Sale <b>AI Shopping</b><span class="d12-eyebrow-count">${double12Live()?"大促结束倒计时":"大促开启倒计时"} <time data-countdown aria-label="大促倒计时"></time></span></div><div class="headline"><em>Best Price</em> for All Purchases</div><div class="benefits">${I('badge-percent')}<span>Free AI shopping</span><span class="separator">|</span>${I('tag')}<span>No subscription needed</span></div><div class="feature-chips"><button type="button" class="cursor-interaction" data-hub="compare"><span>Compare Prices</span>${img('coin','')}</button><button type="button" class="cursor-interaction" data-hub="discount"><span>Track Price Drops</span>${img('drop','')}</button><button type="button" class="cursor-interaction" data-assistant><span>Find Gifts</span>${img('gift','')}</button><button type="button" class="cursor-interaction" data-assistant><span>Shop by Occasion</span>${img('occasion','')}</button></div>${onlineFeed()}</div>`+composer()+nav();
+  return top()+`<div class="commerce d12-home" tabindex="0" aria-label="双十二商品推荐区域"><div class="d12-eyebrow">12.12 Mega Sale <b>AI Shopping</b><span class="d12-eyebrow-count">${double12Live()?"大促结束倒计时":"大促开启倒计时"} <time data-countdown aria-label="大促倒计时"></time></span></div><div class="headline"><em>Best Price</em> for All Purchases</div><div class="benefits">${I('badge-percent')}<span>Free AI shopping</span><span class="separator">|</span>${I('tag')}<span>No subscription needed</span></div><div class="feature-chips"><button type="button" class="cursor-interaction" data-hub="compare"><span><i class="d12-chip-tag">Lowest 12.12 Price</i>Compare Prices</span>${img('coin','')}</button><button type="button" class="cursor-interaction" data-hub="discount"><span><i class="d12-chip-tag">Sale Drop Alerts</i>Track Price Drops</span>${img('drop','')}</button><button type="button" class="cursor-interaction" data-chip="budget"><span><i class="d12-chip-tag">12.12 Budget Picks</i>Shop Within Your Budget</span>${img('wallet','')}</button><button type="button" class="cursor-interaction" data-chip="buy"><span><i class="d12-chip-tag">12.12 Must-Haves</i>Find Shopping Ideas</span>${img('bulb','')}</button></div>${onlineFeed()}</div>`+composer()+nav();
  };
+ // Keep the production chip picker (Shop Within Your Budget / Find Shopping Ideas) instead of folding it into the hub flow.
+ const d12Prepare=prepareLongPlan;prepareLongPlan=function(){if(s.flow==='chip')return;d12Prepare();};
  const d12Card=onlineQueryCard;onlineQueryCard=function(key){
   let h=d12Card(key);const index=activeFeedKeys().indexOf(key);if(index<0||index>2)return h;
   return h.replace('class="online-query-card"','class="online-query-card d12-festive"').replace('<span class="online-quote" aria-hidden="true">','<span class="d12-card-tag" aria-hidden="true">12.12</span><span class="online-quote" aria-hidden="true">');
