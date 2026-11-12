@@ -2097,15 +2097,41 @@ html,body{margin:0!important;padding:0!important;width:100%;height:100%;backgrou
 #migoo-d11-reference .integrated-promo .d12-hero-sparkle svg{fill:none;stroke:currentColor;stroke-width:1.3}
 #migoo-d11-reference .integrated-promo .d12-hero-star{color:#ffea85}
 </style><style id="d12-festive">/* 12.12 treatment for the For You home. Tokens shared with the Assistant drawer: coral #ff5a2e, amber #ffb13d, ink #2a211d, peach #fff3ea, line #ffdcc8. The production header and four entry chips stay as they are; the campaign lives in one banner and a light tint. */
-#migoo-d11-reference[data-online-feed-home=true] .commerce.d12-home{background:linear-gradient(180deg,#fff3ea 0%,#f9f4f2 30%,#f5f6fb 58%)}
-#migoo-d11-reference .d12-home .headline em{background:linear-gradient(90deg,#ff5a2e,#ffb13d);background-clip:text;-webkit-background-clip:text;box-shadow:0 5px 0 -1px #ff8a5b33}
-#migoo-d11-reference .d12-home .feature-chips{padding-bottom:4.5cqw}
-#migoo-d11-reference .d12-home .feature-chips button{box-shadow:0 1px 2px #d9c9c022;font-size:3.7cqw;min-height:14.5cqw;padding:2.4cqw 2.6cqw 2.4cqw 3cqw;gap:4px}
-#migoo-d11-reference .d12-home .feature-chips button span{white-space:nowrap;letter-spacing:-.02cqw}
-#migoo-d11-reference .d12-home .feature-chips img{width:9.2cqw;height:9.2cqw}
-#migoo-d11-reference .d12-banner-eyebrow b{font-size:2.1cqw;letter-spacing:.2cqw;white-space:nowrap;padding:.8cqw 1.4cqw;border-radius:1cqw;background:#2a211d;color:#fff;font-weight:700}
-#migoo-d11-reference .d12-banner-sparkle{position:absolute;right:4.5cqw;bottom:15.2cqw;z-index:1;color:#ffb13d;transform:rotate(8deg);pointer-events:none}
-#migoo-d11-reference .d12-banner-sparkle svg{width:6.4cqw;height:6.4cqw;fill:none;stroke:currentColor;stroke-width:1.4}
+#migoo-d11-reference[data-online-feed-home=true] .commerce.d12-home{background:linear-gradient(180deg,#fff1e6 0%,#fff7f1 24cqw,#f5f6fb 50cqw,#f5f6fb 100%)}
+/* Type scale follows the 12.12 drawer: 8px kicker, 17px title, 12px module cards, 11px body. */
+#migoo-d11-reference .d12-home .d12-eyebrow{display:flex;align-items:center;gap:1.6cqw;padding:3.4cqw 4.2cqw 0;font-size:2.2cqw;line-height:1.2;letter-spacing:.38cqw;text-transform:uppercase;color:#d94a22;font-weight:750;white-space:nowrap}
+#migoo-d11-reference .d12-home .d12-eyebrow b{font-size:2cqw;letter-spacing:.2cqw;padding:.8cqw 1.4cqw;border-radius:1cqw;background:#2a211d;color:#fff;font-weight:700}
+#migoo-d11-reference .d12-home .d12-eyebrow-count{margin-left:auto;display:inline-flex;align-items:center;gap:1.2cqw;letter-spacing:0;text-transform:none;font-size:2.3cqw;color:#a0705a;font-weight:600}
+#migoo-d11-reference .d12-home .d12-eyebrow-count time{padding:.9cqw 1.8cqw;border-radius:1.4cqw;background:#2a211d;color:#fff;font-size:2.5cqw;font-weight:650;letter-spacing:.1cqw;font-variant-numeric:tabular-nums}
+#migoo-d11-reference .d12-home .headline{white-space:normal;font-size:5.2cqw;line-height:1.25;font-weight:800;letter-spacing:-.14cqw;color:#2a211d;padding:1.8cqw 4.2cqw 0}
+#migoo-d11-reference .d12-home .headline em{background:linear-gradient(100deg,#ff5a2e 0%,#ff8a3d 55%,#ffb13d 100%);background-clip:text;-webkit-background-clip:text;box-shadow:none;font-weight:800}
+#migoo-d11-reference .d12-home .benefits{font-size:2.7cqw;line-height:1.3;padding:1.6cqw 4.2cqw 3.8cqw;color:#9a8d87;gap:1cqw}
+#migoo-d11-reference .d12-home .benefits svg{width:3cqw!important;height:3cqw!important}
+#migoo-d11-reference .d12-home .benefits .separator{padding:0 1cqw;color:#e3d6cf}
+#migoo-d11-reference .d12-home .feature-chips{gap:2.2cqw;padding:0 4.2cqw 4.6cqw}
+#migoo-d11-reference .d12-home .feature-chips button{position:relative;overflow:hidden;min-height:13.4cqw;padding:2.2cqw 2.4cqw 2.2cqw 3.2cqw;gap:1.5cqw;border-radius:3cqw;background:linear-gradient(135deg,#fff 0%,#fff4ea 100%);border:1px solid #ffdcc8;box-shadow:0 1.5cqw 4cqw #ff5a2e10;font-size:3.1cqw;line-height:1.3;font-weight:650;color:#2a211d;letter-spacing:-.02cqw}
+#migoo-d11-reference .d12-home .feature-chips button:before{content:"";position:absolute;right:-4cqw;top:-5cqw;width:18cqw;height:18cqw;border-radius:50%;background:radial-gradient(circle,#ffb13d4a,transparent 64%);pointer-events:none}
+#migoo-d11-reference .d12-home .feature-chips button span{white-space:nowrap;position:relative}
+#migoo-d11-reference .d12-home .feature-chips img{width:8cqw;height:8cqw;position:relative}
+/* Feed stays quiet: production background, compact type. */
+#migoo-d11-reference .d12-home .online-waterfall{gap:2.2cqw;padding:0 4.2cqw}
+#migoo-d11-reference .d12-home .online-feed-column{gap:2.2cqw}
+#migoo-d11-reference .d12-home .online-query-main{padding:2.6cqw!important}
+#migoo-d11-reference .d12-home .online-quote{font-size:7cqw;height:4.2cqw;margin-bottom:1.2cqw}
+#migoo-d11-reference .d12-home .online-query-title{font-size:3.4cqw;line-height:1.5;font-weight:500;padding:0 1cqw;color:#2a211d}
+#migoo-d11-reference .d12-home .online-single-product{margin-top:2.8cqw;padding:1.8cqw;gap:1.8cqw}
+#migoo-d11-reference .d12-home .online-single-product>img{width:11cqw;height:11cqw}
+#migoo-d11-reference .d12-home .online-mini-name{font-size:2.8cqw;line-height:1.3}
+#migoo-d11-reference .d12-home .online-mini-price{font-size:3.4cqw;font-weight:650}
+#migoo-d11-reference .d12-home .online-multiple-products{margin:2.4cqw 1cqw 1.4cqw;gap:1.6cqw}
+#migoo-d11-reference .d12-home .online-goods-copy{padding:2cqw 2cqw 2.4cqw}
+#migoo-d11-reference .d12-home .online-goods-name{font-size:3.3cqw}
+#migoo-d11-reference .d12-home .online-goods-discount{font-size:2.7cqw;margin-top:1cqw}
+#migoo-d11-reference .d12-home .online-goods-price strong{font-size:3.7cqw;font-weight:650}
+#migoo-d11-reference .d12-home .online-goods-price del{font-size:2.7cqw}
+#migoo-d11-reference .d12-home .online-goods-caption{font-size:2.9cqw;margin-top:1.2cqw}
+#migoo-d11-reference .d12-home .d12-card-tag{font-size:2.2cqw;top:1.8cqw;right:1.8cqw}
+#migoo-d11-reference .d12-home ~ .composer-wrap .composer,#migoo-d11-reference .composer{font-size:3.4cqw}
 #migoo-d11-reference .integrated-promo.d12-banner{position:relative;overflow:hidden;margin:0 4cqw 4cqw;padding:4cqw 4.2cqw 3.8cqw;border-radius:4cqw;background:linear-gradient(135deg,#fff7f0 0%,#ffe8d8 100%);background-image:linear-gradient(135deg,#fff7f0 0%,#ffe8d8 100%);background-size:auto;border:1px solid #ffdcc8;box-shadow:0 2cqw 6cqw #ff5a2e12;color:#2a211d}
 #migoo-d11-reference .d12-banner:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 88% 14%,#ffb13d4d,transparent 48%),radial-gradient(circle at 4% 108%,#ff5a2e2b,transparent 46%)}
 #migoo-d11-reference .d12-banner-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:3cqw}
@@ -3373,7 +3399,7 @@ if(isD12){
   return `<section class="integrated-promo d12-banner" aria-label="双十二大促入口"><div class="d12-banner-top"><div><div class="d12-banner-eyebrow">12.12 Mega Sale <b>AI Shopping</b></div><div class="d12-banner-number" aria-hidden="true">12<i>.</i>12</div><div class="d12-banner-title">双十二，AI 帮你挑好物</div></div><div class="d12-banner-countdown"><span>${label}</span><time data-countdown aria-label="${label}"></time></div></div><span class="d12-banner-sparkle" aria-hidden="true">${campaignIcon('sparkles')}</span><div class="d12-banner-entries" role="group" aria-label="三类购物清单">${Object.entries(alignedModules).map(([key,m])=>`<button type="button" class="d12-module cursor-interaction" data-hub="${key}" aria-label="${m.label}">${campaignIcon(m.icon)}<span>${m.label}</span></button>`).join('')}</div></section>`;
  }
  home=function(){
-  return top()+`<div class="commerce d12-home" tabindex="0" aria-label="双十二商品推荐区域"><div class="headline"><em>Best Price</em> for All Purchases</div><div class="benefits">${I('badge-percent')}<span>Free AI shopping</span><span class="separator">|</span>${I('tag')}<span>No subscription needed</span></div><div class="feature-chips"><button type="button" class="cursor-interaction" data-hub="compare"><span>Compare Prices</span>${img('coin','')}</button><button type="button" class="cursor-interaction" data-hub="discount"><span>Track Price Drops</span>${img('drop','')}</button><button type="button" class="cursor-interaction" data-assistant><span>Find Gifts</span>${img('gift','')}</button><button type="button" class="cursor-interaction" data-assistant><span>Shop by Occasion</span>${img('occasion','')}</button></div>${onlineFeed()}</div>`+composer()+nav();
+  return top()+`<div class="commerce d12-home" tabindex="0" aria-label="双十二商品推荐区域"><div class="d12-eyebrow">12.12 Mega Sale <b>AI Shopping</b><span class="d12-eyebrow-count">${double12Live()?"大促结束倒计时":"大促开启倒计时"} <time data-countdown aria-label="大促倒计时"></time></span></div><div class="headline"><em>Best Price</em> for All Purchases</div><div class="benefits">${I('badge-percent')}<span>Free AI shopping</span><span class="separator">|</span>${I('tag')}<span>No subscription needed</span></div><div class="feature-chips"><button type="button" class="cursor-interaction" data-hub="compare"><span>Compare Prices</span>${img('coin','')}</button><button type="button" class="cursor-interaction" data-hub="discount"><span>Track Price Drops</span>${img('drop','')}</button><button type="button" class="cursor-interaction" data-assistant><span>Find Gifts</span>${img('gift','')}</button><button type="button" class="cursor-interaction" data-assistant><span>Shop by Occasion</span>${img('occasion','')}</button></div>${onlineFeed()}</div>`+composer()+nav();
  };
  const d12Card=onlineQueryCard;onlineQueryCard=function(key){
   let h=d12Card(key);const index=activeFeedKeys().indexOf(key);if(index<0||index>2)return h;
