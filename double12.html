@@ -294,7 +294,7 @@ body:not([data-integrated-surface=commerce]) .for-you-panel{display:none!importa
       <div class="panel-heading"><span class="d12-panel-eyebrow">ASSISTANT · 12.12</span><h2>购物灵感，从这里开始</h2><p>新的大促入口，还是熟悉的 Assistant。挑一个场景，把购物问题问具体。</p></div>
       <div class="panel-scroll">
         <button class="d12-open-preview" data-action="sales">打开双十二抽屉 <span>↗</span></button>
-        <ol class="d12-journey"><li><span>01</span><div><strong>点亮大促入口</strong><p>Assistant 底部新增 12.12 Sales Chip。</p></div></li><li><span>02</span><div><strong>三类购物清单</strong><p>大促热选、折扣精选、复购补货；点击后将问题发入同一对话。</p></div></li><li><span>03</span><div><strong>找低价与预算建议</strong><p>前两个 Tab 可横滑滚动 Query，点击后直接发入聊天。</p></div></li><li><span>04</span><div><strong>指定商品再提问</strong><p>商品比较选两件；确认规格后附在输入框，再由用户发送。</p></div></li></ol>
+        <ol class="d12-journey"><li><span>01</span><div><strong>点亮大促入口</strong><p>Assistant 底部新增 12.12 Sales Chip。</p></div></li><li><span>02</span><div><strong>三类购物清单</strong><p>大促热选、折扣精选、复购补货；点击后将问题发入同一对话。</p></div></li><li><span>03</span><div><strong>找低价、按预算挑、商品比较</strong><p>三个 Tab 都是横滑滚动的 Query，点击后直接发入聊天。</p></div></li><li><span>04</span><div><strong>对话内承接</strong><p>推荐、比价、对比结果生成 Checkout 卡，再进入 Regular Checkout。</p></div></li></ol>
         <section class="d12-panel-tasks"><h3>快速查看分类</h3><div><button data-action="d12-open-task" data-task="lowprice">找低价</button><button data-action="d12-open-task" data-task="budget">按预算挑</button><button data-action="d12-open-task" data-task="compare">商品比较</button></div></section>
         <div id="d12-live-state" class="flow-state"></div>
         <div class="boundary"><p><b>Assistant PM 体验稿 · V0.4</b><br>商品选择器参考 Migoo in Shopee 交互演示；For You 已整合到同一手机的 For You Tab。推荐后在对话内生成 Checkout 卡片，再进入 Regular Checkout 抽屉。商品、价格、Memory、浏览及已购记录、提醒和下单均为合成演示，不接真实账号或后台服务。</p></div>
@@ -451,14 +451,14 @@ const MODULES=[
 const TASKS=[
   {id:'lowprice',label:'找低价',icon:'scan',heading:'说出想买的，我帮你找低价',description:'按商品和规格找价格合适的候选，不承诺实时最低价。'},
   {id:'budget',label:'按预算挑',icon:'wallet',heading:'预算内，挑些真正需要的',description:'预算是上限，不为凑数把钱花完。'},
-  {id:'compare',label:'商品比较',icon:'compare',heading:'选好两件，再一起比较',description:'明确具体商品和规格，再比较价格与适用性。'}
+  {id:'compare',label:'商品比较',icon:'compare',heading:'说出想比的，我帮你看哪个更合适',description:'按规格、单价和适用场景比较，不只看价格。'}
 ];
 const q=(id,text,product='coffee')=>({id,text,product});
 const SUGGESTIONS={
   compare:[
-    [q('c1','Kopi-C 单包和三包装，哪个单价更合适？'),q('c2','这组咖啡的价格应该怎么看？'),q('c3','同款咖啡，怎么避免买错规格？'),q('c4','优惠还没确定，先帮我比较商品价')],
-    [q('c5','Torriden 单支和双支，哪个适合我？','cleanser'),q('c6','这款洁面囤两支，会不会买多了？','cleanser'),q('c7','先帮我看清洁面的规格与单价','cleanser'),q('c8','洁面价格接近时，应该怎么选？','cleanser')],
-    [q('c9','洗衣粉四包和八包，哪个更适合补货？','laundry'),q('c10','家居用品比价，要看哪些信息？','laundry'),q('c11','同款洗衣粉，按每公斤算一下','laundry'),q('c12','帮我看看这组洗衣用品的购买数量','laundry')]
+    [q('c1','☕ Kopi-C 单包和三包装，哪个单价更合适'),q('c2','☕ 两种咖啡规格，日常喝选哪个更划算'),q('c3','☕ 同款咖啡怎么避免买错规格'),q('c4','☕ 优惠还没出，先帮我比一下商品价')],
+    [q('c5','🧴 Torriden 单支和双支装，哪个适合我','cleanser'),q('c6','🧴 洁面囤两支会不会买多了','cleanser'),q('c7','🧴 两款洁面规格和单价对比一下','cleanser'),q('c8','🧴 洁面价格接近时，应该怎么选','cleanser')],
+    [q('c9','🧺 洗衣粉四包和八包，哪个更适合补货','laundry'),q('c10','🧺 1kg 和四包装洗衣粉，按每公斤比一下','laundry'),q('c11','🧺 家居日用比价，要看哪些信息','laundry'),q('c12','🧺 这组洗衣用品买多少才不浪费','laundry')]
   ],
   alert:[
     [q('a1','这款 Kopi-C 咖啡降价的时候提醒我'),q('a2','我常买的咖啡想等个好价'),q('a3','帮我给咖啡设置一个目标价'),q('a4','这组咖啡低于 S$18 时提醒我')],
@@ -1189,8 +1189,8 @@ function suggestionRows(task){
 }
 function taskPanel(task){
   if(task.id==='reminder')return longtermAddon.panel(task.id,{positions:drawerState.positions.reminder,motionControl:motionControlMarkup(),motionPaused:drawerState.motionPaused});
-  if(['compare','alert'].includes(task.id)){
-    const compare=task.id==='compare';
+  if(task.id==='alert'){
+    const compare=false;
     return `<div class="d12-select-task"><span class="d12-select-task-icon">${icon(task.icon)}</span><h5>${compare?'先选两件具体商品':'先选一件具体商品'}</h5><p>${compare?'从最近浏览、购物车或已购商品中选两件，确认规格后再比较。':'确认商品与规格后，回到聊天设置目标价格。'}</p><button type="button" data-action="d12-open-selector" data-mode="${task.id}">${compare?'选择两件商品':'选择一件商品'} <span aria-hidden="true">→</span></button><small>选择后先附在 Assistant 输入框，由你确认发送。</small></div>`;
   }
   return `<div class="d12-suggestion-heading"><div><h4>${task.heading}</h4><p>找个问题开始聊聊</p></div><button id="d12-motion-toggle" class="d12-motion-toggle" data-action="d12-toggle-motion" aria-pressed="${drawerState.motionPaused}" aria-label="${drawerState.motionPaused?'继续 Query 建议滚动':'暂停 Query 建议滚动'}">${motionControlMarkup()}</button></div>${suggestionRows(task)}`;
@@ -1199,14 +1199,14 @@ function renderDrawer(){
   stopSuggestionMotion();
   const task=combinedTasks().find(t=>t.id===drawerState.task)||combinedTasks()[0];if(task.id!==drawerState.task)drawerState.task=task.id;
   const modules=longtermAddon?[...MODULES,{id:'plan',label:'下单方案',icon:'wallet'}]:MODULES;
-  $('#d12-drawer-root').innerHTML=`<div class="d12-backdrop" data-action="d12-close"></div><section class="d12-sheet" role="dialog" aria-modal="true" aria-label="双十二购物灵感"><div class="d12-grab" aria-hidden="true"></div><div class="d12-sheet-header"><span class="d12-drawer-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l2 15H3L5 7Zm3 0V5a4 4 0 0 1 8 0v2"/><path d="M15 12c-5-3-8 2-3 3s2 6-3 3"/></svg>Migoo × Shopee</span><button class="d12-close" data-action="d12-close" aria-label="关闭双十二抽屉">×</button></div><div class="d12-sheet-body"><div class="d12-hero"><div class="d12-kicker">12.12 MEGA SALE <span>AI SHOPPING</span></div><div class="d12-sale-row"><div class="d12-sale-number" aria-hidden="true">12<span class="d12-sale-bolt">ϟ</span>12</div><div class="promo-countdown"><span data-assistant-countdown-label>大促开启倒计时</span><time data-assistant-countdown aria-label="大促开启倒计时"></time></div></div><h2>双十二，AI 帮你挑好物</h2><p>${longtermAddon?'大促热选 · 折扣精选 · 复购补货 · 下单方案':'大促热选 · 折扣精选 · 常买再补'}</p><span class="d12-hero-sparkle">${icon('sparkles')}</span><span class="d12-hero-star" aria-hidden="true">✦</span></div><div class="d12-modules" role="group" aria-label="${longtermAddon?'购物清单与下单方案':'三类购物清单'}">${modules.map(m=>`<button class="d12-module" data-action="${m.id==='plan'?'lt-select-products':'d12-module'}" data-module="${m.id}" aria-label="${m.label}">${icon(m.icon)}<span>${m.label}</span></button>`).join('')}</div><div class="d12-task-tabs" role="tablist" aria-label="购物任务分类">${combinedTasks().map(t=>`<button class="d12-task-tab" id="d12-tab-${t.id}" role="tab" aria-label="${t.label}" aria-selected="${t.id===task.id}" aria-controls="d12-suggestions" data-action="d12-tab" data-task="${t.id}"><span>${t.label}</span></button>`).join('')}</div><section id="d12-suggestions" class="d12-suggestions-panel" role="tabpanel" aria-labelledby="d12-tab-${task.id}">${taskPanel(task)}</section><p class="d12-context"><span>✦</span>${task.description} 所有商品、价格与购物记录均为演示样例。</p></div><div class="d12-drawer-compose"><form id="d12-drawer-form"><span aria-hidden="true" class="d12-drawer-compose-icon">+</span><input id="d12-drawer-input" value="${esc(drawerState.query)}" placeholder="说说你的双十二购物计划…" aria-label="双十二购物需求" autocomplete="off"><button type="submit" aria-label="发送双十二购物需求"><svg viewBox="0 0 24 24"><path d="M12 19V4m-6 6 6-6 6 6"/></svg></button></form><p>${['compare','alert'].includes(task.id)?'选择商品并确认规格后，回 Assistant 发送':'选择建议，回到 Assistant 继续聊'} · 交互原型，不执行真实操作</p></div></section>`;
+  $('#d12-drawer-root').innerHTML=`<div class="d12-backdrop" data-action="d12-close"></div><section class="d12-sheet" role="dialog" aria-modal="true" aria-label="双十二购物灵感"><div class="d12-grab" aria-hidden="true"></div><div class="d12-sheet-header"><span class="d12-drawer-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l2 15H3L5 7Zm3 0V5a4 4 0 0 1 8 0v2"/><path d="M15 12c-5-3-8 2-3 3s2 6-3 3"/></svg>Migoo × Shopee</span><button class="d12-close" data-action="d12-close" aria-label="关闭双十二抽屉">×</button></div><div class="d12-sheet-body"><div class="d12-hero"><div class="d12-kicker">12.12 MEGA SALE <span>AI SHOPPING</span></div><div class="d12-sale-row"><div class="d12-sale-number" aria-hidden="true">12<span class="d12-sale-bolt">ϟ</span>12</div><div class="promo-countdown"><span data-assistant-countdown-label>大促开启倒计时</span><time data-assistant-countdown aria-label="大促开启倒计时"></time></div></div><h2>双十二，AI 帮你挑好物</h2><p>${longtermAddon?'大促热选 · 折扣精选 · 复购补货 · 下单方案':'大促热选 · 折扣精选 · 常买再补'}</p><span class="d12-hero-sparkle">${icon('sparkles')}</span><span class="d12-hero-star" aria-hidden="true">✦</span></div><div class="d12-modules" role="group" aria-label="${longtermAddon?'购物清单与下单方案':'三类购物清单'}">${modules.map(m=>`<button class="d12-module" data-action="${m.id==='plan'?'lt-select-products':'d12-module'}" data-module="${m.id}" aria-label="${m.label}">${icon(m.icon)}<span>${m.label}</span></button>`).join('')}</div><div class="d12-task-tabs" role="tablist" aria-label="购物任务分类">${combinedTasks().map(t=>`<button class="d12-task-tab" id="d12-tab-${t.id}" role="tab" aria-label="${t.label}" aria-selected="${t.id===task.id}" aria-controls="d12-suggestions" data-action="d12-tab" data-task="${t.id}"><span>${t.label}</span></button>`).join('')}</div><section id="d12-suggestions" class="d12-suggestions-panel" role="tabpanel" aria-labelledby="d12-tab-${task.id}">${taskPanel(task)}</section><p class="d12-context"><span>✦</span>${task.description} 所有商品、价格与购物记录均为演示样例。</p></div><div class="d12-drawer-compose"><form id="d12-drawer-form"><span aria-hidden="true" class="d12-drawer-compose-icon">+</span><input id="d12-drawer-input" value="${esc(drawerState.query)}" placeholder="说说你的双十二购物计划…" aria-label="双十二购物需求" autocomplete="off"><button type="submit" aria-label="发送双十二购物需求"><svg viewBox="0 0 24 24"><path d="M12 19V4m-6 6 6-6 6 6"/></svg></button></form><p>${task.id==='alert'?'选择商品并确认规格后，回 Assistant 发送':'选择建议，回到 Assistant 继续聊'} · 交互原型，不执行真实操作</p></div></section>`;
   $('#d12-drawer-form').addEventListener('submit',e=>{e.preventDefault();const query=$('#d12-drawer-input').value.trim();if(query)sendQuery(query);});
   $('#d12-drawer-input').addEventListener('input',e=>{drawerState.query=e.target.value;});
   if(longtermAddon){
     const strip=$('.d12-task-tabs'),active=$(`#d12-tab-${drawerState.task}`);
     strip.scrollLeft+=Math.max(0,active.getBoundingClientRect().right-strip.getBoundingClientRect().right+12);
   }
-  if(['lowprice','budget','reminder'].includes(task.id))startSuggestionMotion();renderPanel();
+  if(['lowprice','budget','compare','reminder'].includes(task.id))startSuggestionMotion();renderPanel();
 }
 
 function openDrawer(task){
