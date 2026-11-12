@@ -2117,6 +2117,28 @@ html,body{margin:0!important;padding:0!important;width:100%;height:100%;backgrou
 #migoo-d11-reference .d12-chip-tag{display:inline-block;font-style:normal;font-size:2cqw;line-height:1;letter-spacing:.18cqw;text-transform:uppercase;font-weight:750;color:#d94a22;background:#ffe9db;padding:.8cqw 1.4cqw;border-radius:1cqw}
 #migoo-d11-reference .d12-home .feature-chips button{min-height:15.6cqw;font-size:3cqw}
 #migoo-d11-reference .d12-home .feature-chips img{width:8cqw;height:8cqw;position:relative}
+/* Chip picker shares the header format and the drawer's suggestion cards. */
+#migoo-d11-reference .picker.d12-picker{display:flex;flex-direction:column;min-height:100%;padding:0 0 3cqw;background:linear-gradient(180deg,#fff1e6 0%,#fff7f1 24cqw,#f5f6fb 50cqw,#f5f6fb 100%)}
+#migoo-d11-reference .d12-picker .d12-eyebrow{display:flex;align-items:center;gap:1.6cqw;padding:3.4cqw 0 0;font-size:2.2cqw;line-height:1.2;letter-spacing:.38cqw;text-transform:uppercase;color:#d94a22;font-weight:750;white-space:nowrap}
+#migoo-d11-reference .d12-picker .d12-eyebrow b{font-size:2cqw;letter-spacing:.2cqw;padding:.8cqw 1.4cqw;border-radius:1cqw;background:#2a211d;color:#fff;font-weight:700}
+#migoo-d11-reference .d12-picker .d12-eyebrow-count{margin-left:auto;display:inline-flex;align-items:center;gap:1.2cqw;letter-spacing:0;text-transform:none;font-size:2.3cqw;color:#a0705a;font-weight:600}
+#migoo-d11-reference .d12-picker .d12-eyebrow-count time{padding:.9cqw 1.8cqw;border-radius:1.4cqw;background:#2a211d;color:#fff;font-size:2.5cqw;font-weight:650;letter-spacing:.1cqw;font-variant-numeric:tabular-nums}
+#migoo-d11-reference .d12-picker-head{padding:0 4.2cqw 3.4cqw}
+#migoo-d11-reference .d12-picker-head h2{display:flex;align-items:center;gap:1.8cqw;margin:2.4cqw 0 0;font-size:5cqw;line-height:1.25;font-weight:800;letter-spacing:-.12cqw;color:#2a211d}
+#migoo-d11-reference .d12-picker-head h2 svg{width:5cqw!important;height:5cqw!important;stroke:#ff5a2e;stroke-width:2;fill:none}
+#migoo-d11-reference .d12-picker-head p{margin:1.2cqw 0 0;font-size:2.8cqw;line-height:1.4;color:#9a8d87}
+#migoo-d11-reference .d12-suggestions{display:flex;flex-direction:column;align-items:stretch;gap:2.2cqw;padding:0 4.2cqw 3cqw}
+#migoo-d11-reference .d12-suggestions button{display:flex;align-items:center;justify-content:space-between;gap:3cqw;width:100%;max-width:100%;min-height:11.5cqw;padding:2.6cqw 3.4cqw;background:#fff;border:1px solid #f0e2d8;border-radius:2.6cqw;box-shadow:0 .5cqw 1.6cqw #8a594012;font-size:3.1cqw;line-height:1.45;color:#3c302b;text-align:left;font-weight:550}
+#migoo-d11-reference .d12-suggestions button:hover{background:#fff8f3;border-color:#ffd9c4}
+#migoo-d11-reference .d12-suggestions button span{color:inherit;margin:0;min-width:0}
+#migoo-d11-reference .d12-suggestions button i{font-style:normal;color:#ff5a2e;font-weight:700;flex:none;font-size:3.4cqw}
+#migoo-d11-reference .d12-picker .expanded-composer{margin:auto 4.2cqw 0;border:1px solid #f0e6df;box-shadow:0 1cqw 4cqw #8a594010;border-radius:4cqw;padding:2.6cqw 3cqw}
+#migoo-d11-reference .d12-picker .context-chip{font-size:3cqw;padding:1.3cqw 2cqw;gap:1.2cqw;background:#fff1e8;color:#b5502f;border-radius:2cqw}
+#migoo-d11-reference .d12-picker .context-chip svg{width:3.4cqw!important;height:3.4cqw!important;stroke:#ff5a2e}
+#migoo-d11-reference .d12-picker .context-chip button{color:#b5502f;font-size:3.4cqw;line-height:1;padding:0 0 0 .6cqw!important}
+#migoo-d11-reference .d12-picker textarea{font-size:3.3cqw;min-height:9cqw}
+#migoo-d11-reference .d12-picker .input-actions{padding-top:1.4cqw;gap:3cqw}
+#migoo-d11-reference .d12-picker .input-actions svg{width:4.6cqw!important;height:4.6cqw!important}
 /* Feed stays quiet: production background, compact type. */
 #migoo-d11-reference .d12-home .online-waterfall{gap:2.2cqw;padding:0 4.2cqw}
 #migoo-d11-reference .d12-home .online-feed-column{gap:2.2cqw}
@@ -3407,6 +3429,12 @@ if(isD12){
  };
  // Keep the production chip picker (Shop Within Your Budget / Find Shopping Ideas) instead of folding it into the hub flow.
  const d12Prepare=prepareLongPlan;prepareLongPlan=function(){if(s.flow==='chip')return;d12Prepare();};
+ // Chip picker in the shared 12.12 format: kicker + countdown, entry title, drawer-style suggestion cards, composer at the bottom, no mock keyboard.
+ picker=function(){
+  const c=chips[s.chip],label=double12Live()?'大促结束倒计时':'大促开启倒计时';
+  return `<div class="picker d12-picker"><section class="d12-picker-head"><div class="d12-eyebrow">12.12 Mega Sale <b>AI Shopping</b><span class="d12-eyebrow-count">${label} <time data-countdown aria-label="大促倒计时"></time></span></div><h2>${I(c.icon)}${c.label}</h2><p>挑一个双十二问题直接发送，或自己输入</p></section><div class="suggestions d12-suggestions">${c.options.map((o,i)=>`<button type="button" class="cursor-interaction" data-option="${i}"><span>${o.q}</span><i aria-hidden="true">→</i></button>`).join('')}</div><div class="expanded-composer"><div class="context-chip">${I(c.icon)}${c.label}<button type="button" class="cursor-interaction" data-home aria-label="关闭问题选择">×</button></div><textarea id="migoo-draft" aria-label="自行输入双十二问题" placeholder="Tell me what you need">${E(s.draft)}</textarea>${actions()}</div></div>`;
+ };
+ const d12Save=save;save=function(){d12Save();if(s.flow==='chip'&&s.stage===1)window.parent.postMessage({type:'prototype-stage',edition:EDITION,period:s.period,route:'hot',stage:'entry'},'*');};
  const d12Card=onlineQueryCard;onlineQueryCard=function(key){
   let h=d12Card(key);const index=activeFeedKeys().indexOf(key);if(index<0||index>2)return h;
   return h.replace('class="online-query-card"','class="online-query-card d12-festive"').replace('<span class="online-quote" aria-hidden="true">','<span class="d12-card-tag" aria-hidden="true">12.12</span><span class="online-quote" aria-hidden="true">');
