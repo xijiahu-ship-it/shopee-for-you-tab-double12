@@ -262,8 +262,8 @@ body:not([data-integrated-surface=commerce]) .for-you-panel{display:none!importa
 </style><script>window.__commerceInitialHash=location.hash;</script></head>
 <body class="double12-demo">
   <header class="masthead">
-    <a class="wordmark" href="./" aria-label="Migoo campaign lab home"><strong>Migoo in Shopee</strong><span>12.12 交互演示</span></a>
-    <div class="top-links"><nav class="site-tabs" aria-label="大促方案导航"><a href="./#/assistant">短期 Agent Demo</a><a href="double12.html" aria-current="page">双十二 Demo</a><a href="longterm.html">长期方案 Demo</a><a href="planning.html">大促场景承接规划</a><a href="prd.html">本期 PRD 概述</a></nav><button id="reset" class="quiet-button" aria-label="Reset demo"><span>↶</span> Reset</button></div>
+    <a class="wordmark" href="double12.html" aria-label="Shopee For You Tab · Double 12"><strong>Migoo in Shopee</strong><span>12.12 交互演示</span></a>
+    <div class="top-links"><nav class="site-tabs" aria-label="大促方案导航"><a href="double12.html" aria-current="page">双十二 Demo</a></nav></div>
   </header>
   <main class="workspace">
     <section class="device-stage" aria-label="Interactive phone prototype">
@@ -1148,7 +1148,7 @@ document.addEventListener('keydown',e=>{
 $('#message').addEventListener('input',syncInput);
 content.addEventListener('scroll',updateJump,{passive:true});
 $('#message-form').addEventListener('submit',e=>{e.preventDefault();const context=draftSelection?{kind:draftSelection.mode,items:draftSelection.items,product:draftSelection.items[0]?.id}:{};sendQuery($('#message').value.trim(),context);});
-$('#reset').addEventListener('click',reset);
+$('#reset')?.addEventListener('click',reset);
 
 function onRoute(){
   state.screen='assistant';render('bottom');
