@@ -154,6 +154,7 @@
 .d12-campaign-link{display:inline-block;position:relative;z-index:2;margin-top:10px;background:#fff;color:#d74622;border-radius:6px;padding:7px 11px;font-size:11px;font-weight:700;text-decoration:none;box-shadow:0 2px 8px #9d1c1255}
 .d12-campaign-note{display:block;position:relative;z-index:2;margin-top:5px;color:#fff9;font-size:8px}
 </style>
+  
   <style data-original-file="regular-checkout.css">.phone #regular-checkout-root{position:absolute;inset:0;z-index:45;isolation:isolate}
 .rc-checkout-reply{padding:13px 12px 11px;border-radius:20px;background:#f2f3f7;margin:0 0 18px;font-size:13px}
 .rc-checkout-reply>.rc-intro{font-size:13px;line-height:1.5;margin:0 3px 11px}
@@ -208,6 +209,30 @@ body.double12-demo:not(.longterm-demo) .d12-sheet .d12-sale-row .d12-sale-number
 body.double12-demo:not(.longterm-demo) .d12-sheet .promo-countdown{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;min-width:0;margin-left:auto;color:#fff6db;font-size:9px;line-height:1.2}
 body.double12-demo:not(.longterm-demo) .d12-sheet .promo-countdown time{display:block;padding:5px 7px;border:1px solid #ffffff5c;border-radius:6px;background:#ffffff24;color:#fff;font-size:11px;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}
 @media(max-width:450px){body.double12-demo:not(.longterm-demo) .d12-sheet .d12-sale-row{gap:6px}body.double12-demo:not(.longterm-demo) .d12-sheet .promo-countdown time{font-size:10px;padding:4px 5px}}
+</style><style id="d12-refined">/* 12.12 Sales drawer hero, aligned with the For You banner: peach card, coral→amber numerals, ink countdown pill. */
+.double12-demo .d12-sheet{background:#fbf7f3}
+.double12-demo .d12-sheet-body{background:#fbf7f3;background-image:none}
+.double12-demo .d12-hero{margin:2px 12px 12px;padding:14px 16px 13px;min-height:0;border-radius:16px;background:linear-gradient(135deg,#fff7f0 0%,#ffe8d8 100%);border:1px solid #ffdcc8;box-shadow:0 6px 18px #ff5a2e12;color:#2a211d}
+.double12-demo .d12-hero:before{content:"";position:absolute;inset:0;width:auto;height:auto;right:auto;top:auto;border:0;border-radius:0;box-shadow:none;pointer-events:none;background:radial-gradient(circle at 88% 14%,#ffb13d4d,transparent 48%),radial-gradient(circle at 4% 108%,#ff5a2e2b,transparent 46%)}
+.double12-demo .d12-kicker{color:#d94a22;font-size:8px;letter-spacing:1.6px;font-weight:700}
+.double12-demo .d12-kicker span{background:#2a211d;color:#fff;border-radius:4px;letter-spacing:.6px}
+body.double12-demo .d12-sheet .d12-sale-row{display:flex;align-items:flex-start;gap:10px;margin-top:6px}
+.double12-demo .d12-sale-number{font-size:40px;line-height:42px;letter-spacing:-2px;font-weight:800;text-shadow:none;color:transparent;background:linear-gradient(100deg,#ff5a2e 0%,#ff8a3d 55%,#ffb13d 100%);-webkit-background-clip:text;background-clip:text;font-variant-numeric:tabular-nums}
+.double12-demo .d12-sale-bolt{font-size:0;transform:none;padding:0;color:inherit;text-shadow:none}
+.double12-demo .d12-sale-bolt:before{content:".";font-size:40px;letter-spacing:-1px}
+body.double12-demo .d12-sheet .d12-sale-row .promo-countdown{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:5px;color:#a0705a;font-size:9px;line-height:1.2;position:relative;z-index:1;padding-top:2px}
+body.double12-demo .d12-sheet .d12-sale-row .promo-countdown time{display:inline-block;background:#2a211d;color:#fff;border:0;border-radius:8px;padding:6px 10px;font-size:12px;line-height:1.2;font-weight:650;letter-spacing:.3px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.double12-demo .d12-hero h2{font-size:17px;line-height:24px;font-weight:750;color:#2a211d;letter-spacing:-.3px;margin-top:5px;text-shadow:none}
+.double12-demo .d12-hero p{color:#9a7f72;font-size:10px;line-height:17px;margin-top:2px}
+.double12-demo .d12-hero-sparkle{color:#ffb13d;right:15px;bottom:12px;transform:rotate(8deg)}.double12-demo .d12-hero-sparkle svg{height:26px;width:26px;stroke-width:1.5}
+.double12-demo .d12-hero-star{color:#ff8a5b;font-size:13px;right:48px;top:50px}
+.double12-demo .d12-modules{margin:0 12px 14px;gap:8px}
+.double12-demo .d12-module{min-height:74px;border:1px solid #ffe3d4;background:#fff;color:#2a211d;box-shadow:0 2px 8px #ff5a2e0f}
+.double12-demo .d12-module:hover{background:#fff8f3}.double12-demo .d12-module svg{stroke:#ff5a2e}
+.double12-demo .d12-task-tabs{margin:0 12px;background:#fff;border-bottom:1px solid #f3e4da;border-radius:10px 10px 0 0}
+.double12-demo .d12-task-tab{color:#8a7066}.double12-demo .d12-task-tab[aria-selected=true]{color:#e8431f}.double12-demo .d12-task-tab[aria-selected=true]:after{background:#ff5a2e}
+.double12-demo .d12-drawer-brand{color:#e8431f}.double12-demo .d12-close{background:#fff1e9;color:#b07a63}
+.double12-demo .d12-motion-toggle{border-color:#f3e0d4;background:#fff;color:#a0705a}
 </style><style>.for-you-host{display:none;flex:1;min-height:0;overflow:hidden;background:#f5f6fb;position:relative}
 .for-you-host iframe{display:block;width:100%;height:100%;border:0;background:#f5f6fb;visibility:hidden}
 .for-you-host[data-ready=true] iframe{visibility:visible}
