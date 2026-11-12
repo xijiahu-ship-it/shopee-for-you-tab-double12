@@ -3339,15 +3339,15 @@ const campaignIconPaths={
 };
 const campaignIcon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true">${campaignIconPaths[name]||campaignIconPaths.sparkles}</svg>`;
 const alignedModules={
- hot:{label:'大促好物清单',icon:'flame',assistant:'popular'},
- value:{label:'爆款补贴清单',icon:'discount',assistant:'value'},
- restock:{label:'大促必囤清单',icon:'package',assistant:'repurchase'}
+ hot:{label:'加购精选清单',icon:'flame',assistant:'popular'},
+ value:{label:'爆款好价清单',icon:'discount',assistant:'value'},
+ restock:{label:'囤货补货清单',icon:'package',assistant:'repurchase'}
 };
 for(const [key,module] of Object.entries(alignedModules))hubItems[key].label=module.label;
 promoHub=function(){
  const live=!isD12&&s.period==='live',countdownLive=live||isD12&&double12Live(),event=isD12?'12.12':'11.11',digit=isD12?'12':'11',day=isD12?'双十二':'双十一';
  const lists=['hot','value','restock'],features=live?['orderplan','flash','budgetlist','external']:['compare','discount','budgetlist','external'];
- return `<section class="promo-hub integrated-promo" aria-label="${day}大促聚合模块"><div class="d12-hero"><div class="d12-kicker">${event} MEGA SALE <span>AI SHOPPING</span></div><div class="d12-sale-row"><div class="d12-sale-number" aria-hidden="true">${digit}<span class="d12-sale-bolt">ϟ</span>${digit}</div><div class="promo-countdown"><span>${countdownLive?'大促结束倒计时':'大促开启倒计时'}</span><time data-countdown aria-label="${countdownLive?'大促结束倒计时':'大促开启倒计时'}"></time></div></div><h2>${day}，AI 帮你挑好物</h2><p>大促好物清单 · 爆款补贴清单 · 大促必囤清单</p>${!isD12&&!live?`<div class="campaign-day-hint">${I('calendar-check')}<span>可查看大促当天价格</span></div>`:''}<span class="d12-hero-sparkle">${campaignIcon('sparkles')}</span><span class="d12-hero-star" aria-hidden="true">✦</span></div><div class="d12-modules" role="group" aria-label="三类购物清单">${lists.map(key=>`<button type="button" class="d12-module" data-hub="${key}" aria-label="${alignedModules[key].label}">${campaignIcon(alignedModules[key].icon)}<strong>${alignedModules[key].label}</strong></button>`).join('')}</div><div class="promo-features" style="--feature-count:4">${features.map(key=>`<button type="button" data-hub="${key}">${I(hubItems[key].icon)}<span>${key==='external'?'外站商品<br>找低价':hubItems[key].label}</span></button>`).join('')}</div></section>`;
+ return `<section class="promo-hub integrated-promo" aria-label="${day}大促聚合模块"><div class="d12-hero"><div class="d12-kicker">${event} MEGA SALE <span>AI SHOPPING</span></div><div class="d12-sale-row"><div class="d12-sale-number" aria-hidden="true">${digit}<span class="d12-sale-bolt">ϟ</span>${digit}</div><div class="promo-countdown"><span>${countdownLive?'大促结束倒计时':'大促开启倒计时'}</span><time data-countdown aria-label="${countdownLive?'大促结束倒计时':'大促开启倒计时'}"></time></div></div><h2>${day}，AI 帮你挑好物</h2><p>爆款好价清单 · 囤货补货清单 · 加购精选清单</p>${!isD12&&!live?`<div class="campaign-day-hint">${I('calendar-check')}<span>可查看大促当天价格</span></div>`:''}<span class="d12-hero-sparkle">${campaignIcon('sparkles')}</span><span class="d12-hero-star" aria-hidden="true">✦</span></div><div class="d12-modules" role="group" aria-label="三类购物清单">${lists.map(key=>`<button type="button" class="d12-module" data-hub="${key}" aria-label="${alignedModules[key].label}">${campaignIcon(alignedModules[key].icon)}<strong>${alignedModules[key].label}</strong></button>`).join('')}</div><div class="promo-features" style="--feature-count:4">${features.map(key=>`<button type="button" data-hub="${key}">${I(hubItems[key].icon)}<span>${key==='external'?'外站商品<br>找低价':hubItems[key].label}</span></button>`).join('')}</div></section>`;
 };
 // Delegation uses the actual Assistant module in the surrounding original phone.
 openIntegratedAssistant=function(route='assistant',stage='entry',preserve=false){
