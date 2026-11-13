@@ -3156,7 +3156,7 @@ window.addEventListener('message',e=>{if(e.source===window.parent&&e.data?.type=
 // in those examples through the feed, composer, reply and simulated order.
 const documentFeedQueries={
  popular:'除了最近看过的登山杖，双12还有啥热门户外用品可以买',
- value:'最近刚搬家，想趁双十二买些高性价比的家居用品',
+ value:'加购的餐椅和台灯，双十二下单哪件更划算',
  single:'上次买纸巾在2个月前了，最近双十二适合再囤点么',
  multiple:'我之前买的这些东西都快用完了，大促囤货便宜么',
  bundle:'最近看上了这个手机，双十二如何凑单买更划算',
@@ -3180,13 +3180,13 @@ Object.assign(personalProductReasons,{
  phone:'保留你看中的同一款手机与8GB/256GB规格，结合购物车和可用券寻找凑单方案。'
 });
 const exampleCart={phone:1,headphones:1,blouseOut:1};
-const exampleSummary='最近看过登山杖，关注户外用品；最近刚搬家，想添置家居用品；购物车里有看中的手机和耳机。';
+const exampleSummary='最近看过登山杖，关注户外用品；最近刚搬家，购物车里加购了餐椅和台灯；也在看手机和耳机。';
 for(const [key,m]of Object.entries(demoMemoryProfiles))Object.assign(m,{
  label:{audio:'文档原例 · 户外与搬家',home:'文档原例 · 家居补货',commute:'文档原例 · 户外与换机',cold:'文档原例 · 暂无历史订单'}[key],
  summary:exampleSummary,cold:false,popularCategory:'户外用品',popularIds:['backpack'],valueCategory:'家居用品',valueIds:['chair','lamp'],cart:{...exampleCart},
  popularQuery:documentFeedQueries.popular,valueQuery:documentFeedQueries.value,
  popularReply:'除了你最近看过的登山杖，可以再看看登山背包，补齐徒步出行装备。这份清单不重复推荐登山杖。',
- valueReply:'结合你最近搬家的需求，选了餐椅和可调节台灯这两件家居用品。先确认尺寸、插头和实际需要，再决定是否加购。'
+ valueReply:'你购物车里加购的餐椅和可调节台灯，双十二都在好价区间。先确认尺寸、插头和实际需要，再决定先下单哪件。'
 });
 initial.cart={...exampleCart};s.cart={...exampleCart};
 root.querySelectorAll('#memory-profile-case option').forEach(o=>o.textContent=demoMemoryProfiles[o.value].label);
